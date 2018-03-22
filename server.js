@@ -6,8 +6,7 @@ const HOSTNAME = '0.0.0.0';
 const PORT = process.env.PORT || 8010;
 
 const apiServer = http.createServer((req, res) => {
-    const url = req.url.split('/img/')[1];
-    if (url === undefined) {
+    if (req.url.split('/img/')[1] === undefined) {
         const apiUrl = 'http://news-at.zhihu.com/api/4' + req.url;
         request.get(apiUrl).then(response => {
             res.setHeader('Content-Type', 'text/plain;charset=utf8');
