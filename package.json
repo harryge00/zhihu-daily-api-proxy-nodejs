@@ -1,23 +1,22 @@
 {
-  "name": "zhihu-daily-proxy",
-  "version": "1.0.0",
-  "description": "zhihu daily proxy api",
-  "author": "chenjiandongx <chenjiandongx@qq.com>",
-  "private": true,
-  "scripts": {
-  },
-  "dependencies": {
-    "got": "^8.3.0"
-  },
-  "devDependencies": {
-  },
-  "engines": {
-    "node": ">= 6.0.0",
-    "npm": ">= 3.0.0"
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
-  ]
+    "name": "zhihu-daily-proxy",
+    "version": "1.0.0",
+    "description": "zhihu daily proxy api",
+    "author": "chenjiandongx <chenjiandongx@qq.com>",
+    "private": true,
+    "license": "MIT",
+    "scripts": {},
+    "dependencies": {
+        "got": "^8.3.0"
+    },
+    "devDependencies": {},
+    "engines": {
+        "node": ">= 6.0.0",
+        "npm": ">= 3.0.0"
+    },
+    "browserslist": [
+        "> 1%",
+        "last 2 versions",
+        "not ie <= 8"
+    ]
 }
