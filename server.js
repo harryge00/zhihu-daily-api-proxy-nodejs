@@ -3,8 +3,8 @@ const path = require('path');
 const request = require('got');
 
 const hostname = '0.0.0.0';
-const port = 8010;
-const imgPort = 8011;
+const port = process.env.PORT || 8010;
+const imgPort = process.env.PORT || 8011;
 
 const apiServer = http.createServer((req, res) => {
         const url = 'http://news-at.zhihu.com/api/4' + req.url;
@@ -31,3 +31,5 @@ res.end(response.body);
 }).listen(imgPort, hostname, () => {
     console.log(`图片代理运行在 http://${hostname}:${imgPort}/`)
 });
+
+console.log(process.env.PORT)
