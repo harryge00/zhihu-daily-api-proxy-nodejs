@@ -16,15 +16,13 @@ const apiServer = http.createServer((req, res) => {
     } else {
         const imgUrl = req.url.split('/img/')[1];
         request.get(imgUrl, { encoding: null }).then(response => {
+            const contentType = response.headers['Content-Type'];
             res.setHeader('Content-Type', 'image/jpeg')
             res.setHeader('Content-Type', 'image/gif');
             res.setHeader('Access-Control-Allow-Origin', '*');
             res.end(response.body);
         }).catch(error => {});
     }
-
 }).listen(PORT, HOSTNAME, () => {
     console.log(`接口代理运行在 http://${HOSTNAME}:${PORT}/`)
 });
-
-console.log(process.env.PORT)
