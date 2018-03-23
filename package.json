@@ -1,7 +1,7 @@
 {
     "name": "zhihu-daily-proxy",
     "version": "1.0.0",
-    "description": "zhihu daily proxy api",
+    "description": "知乎日报 API 代理网站",
     "author": "chenjiandongx <chenjiandongx@qq.com>",
     "private": true,
     "license": "MIT",
