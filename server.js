@@ -7,14 +7,25 @@ const PORT = process.env.PORT || 8010;
 
 const apiServer = http.createServer((req, res) => {
     if (req.url.split('/img/')[1] === undefined) {
-        const apiUrl = 'http://news-at.zhihu.com/api/4' + req.url;
+        const apiUrl = 'https://news-at.zhihu.com' + req.url;
+        console.log("api ", apiUrl);
         request.get(apiUrl).then(response => {
             res.setHeader('Content-Type', 'text/plain;charset=utf8');
             res.setHeader('Access-Control-Allow-Origin', '*');
-            res.end(response.body);
+            if(req.url == "/api/4/news/latest") {
+                var body = JSON.parse(response.body);
+               for(let i = 0; i < body.stories.length; i++) {
+                    body.stories[i].title = "你想看的金融新闻";
+               }
+                res.end(JSON.stringify(body));
+            } else {
+                res.end(response.body);
+            }
         }).catch(error => {});
     } else {
         const imgUrl = req.url.split('/img/')[1];
+        console.log("img ", imgUrl);
+
         request.get(imgUrl, { encoding: null }).then(response => {
             const contentType = response.headers['Content-Type'];
             res.setHeader('Content-Type', 'image/jpeg')
