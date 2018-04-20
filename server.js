@@ -17,6 +17,10 @@ const apiServer = http.createServer((req, res) => {
                for(let i = 0; i < body.stories.length; i++) {
                     body.stories[i].title = "你想看的金融新闻";
                }
+               for(let i = 0; i < body.top_stories.length; i++) {
+                    body.top_stories[i].title = "大陸香港金融頭條";
+               }
+                console.log(body);
                 res.end(JSON.stringify(body));
             } else {
                 res.end(response.body);
